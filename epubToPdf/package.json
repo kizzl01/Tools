@@ -1,0 +1,23 @@
+{
+  "name": "epubtopdf",
+  "version": "1.0.0",
+  "description": "a module to convert epub files to pdf",
+  "main": "./lib/index.js",
+  "preferGlobal": true,
+  "directories": {
+    "lib": "lib",
+    "bin": "bin"
+  },
+  "dependencies": {
+    "ebook-convert": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lukas Michalek",
+  "license": "ISC",
+  "bin": {
+    "epubtopdf": "./bin/epubToPdf.js"
+  }
+}
