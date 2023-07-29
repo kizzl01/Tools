@@ -1,5 +1,5 @@
 {
-  "name": "epubtopdf",
+  "name": "@kizzl/epubtopdf",
   "version": "1.0.0",
   "description": "a module to convert epub files to pdf",
   "main": "./lib/index.js",
