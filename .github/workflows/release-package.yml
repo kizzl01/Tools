@@ -1,19 +1,26 @@
-name: Node.js Package
+name: npm Tools Package
 
 on:
   release:
     types: [created]
 
+env: 
+  packages: epubtopdf
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    env: 
+      package: $packages
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
       - run: npm ci
+        working-directory: ./packages/$package
       - run: npm test
+        working-directory: ./packages/$package
 
   publish-gpr:
     needs: build
@@ -21,6 +28,8 @@ jobs:
     permissions:
       packages: write
       contents: read
+    env: 
+      package: $packages
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -28,6 +37,8 @@ jobs:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
+        working-directory: ./packages/$package
       - run: npm publish
+        working-directory: ./packages/$package
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
