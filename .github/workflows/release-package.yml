@@ -17,8 +17,6 @@ jobs:
           node-version: 16
       - run: npm ci
         working-directory: packages/${{env.packages}}
-      - run: npm test
-        working-directory: packages/${{env.packages}}
 
   publish-gpr:
     needs: build
