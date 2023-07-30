@@ -4,6 +4,9 @@
   "description": "a module to convert epub files to pdf",
   "main": "./lib/index.js",
   "preferGlobal": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "directories": {
     "lib": "lib",
     "bin": "bin"
