@@ -10,17 +10,15 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env: 
-      package: $packages
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
       - run: npm ci
-        working-directory: packages/$package
+        working-directory: packages/${{env.packages}}
       - run: npm test
-        working-directory: packages/$package
+        working-directory: packages/${{env.packages}}
 
   publish-gpr:
     needs: build
@@ -28,8 +26,6 @@ jobs:
     permissions:
       packages: write
       contents: read
-    env: 
-      package: $packages
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -37,8 +33,8 @@ jobs:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
-        working-directory: packages/$package
+        working-directory: packages/${{env.packages}}
       - run: npm publish
-        working-directory: packages/$package
+        working-directory: packages/${{env.packages}}
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
