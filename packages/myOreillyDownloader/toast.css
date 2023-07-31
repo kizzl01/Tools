@@ -1,0 +1,132 @@
+.centerMe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toast {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  bottom: 30px;
+  font-size: small;
+}
+
+.toast.show {
+  visibility: visible;
+  -webkit-animation: toastIn 0.5s, toastOut 0.5s 2.5s;
+  animation: toastIn 0.5s, toastOut 0.5s 2.5s;
+}
+
+.failed {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: #dd0000;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  bottom: 80px;
+  font-size: small;
+}
+.failed.show {
+  visibility: visible;
+  -webkit-animation: failedIn 0.5s, failedOut 0.5s 4.5s;
+  animation: failedIn 0.5s, failedOut 0.5s 4.5s;
+}
+
+@-webkit-keyframes toastIn {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes toastIn {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes toastOut {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes toastOut {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes failedIn {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 80px;
+    opacity: 1;
+  }
+}
+
+@keyframes failedIn {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 80px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes failedOut {
+  from {
+    bottom: 80px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes failedOut {
+  from {
+    bottom: 80px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}

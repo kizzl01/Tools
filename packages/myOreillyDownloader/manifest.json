@@ -1,0 +1,37 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "manifest_version": 2,
+  "name": "Advanced O'Reilly Downloader",
+  "description": "Downloads O'Reilly ebooks and converts them to pdf if wanted",
+  "version": "1.0.0.0",
+  "author": "Lukas Michalek",
+  "icons": {
+    "16": "img/16px.png",
+    "48": "img/48px.png",
+    "128": "img/128px.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "img/16px.png",
+      "48": "img/48px.png",
+      "128": "img/128px.png"
+    },
+    "default_popup": "popup/popup.html"
+  },
+  "web_accessible_resources": ["*.png", "*.svg", "fflate.js"],
+  "background": {
+    "persistent": true,
+    "page": "background.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/videos/*", "https://*/learning-paths/*", "https://*/library/view/*", "https://event.on24.com/eventRegistration/console/*"],
+      "js": ["common.js", "kaltura_functions.js", "contentscript.js", "fflate.js"],
+      "css": ["myoreillydownloader.css", "toast.css"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "permissions": ["downloads", "storage", "https://*/videos/*", "https://*/learning-paths/*", "https://*/library/view/*", "https://event.on24.com/*"]
+}

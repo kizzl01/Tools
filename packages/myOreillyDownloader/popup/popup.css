@@ -1,0 +1,147 @@
+@font-face {
+  font-family: "oreilly";
+  src: url("../fonts/GuardianTextSans-Regular-Web.woff2") format("woff");
+}
+
+html {
+  min-width: 600px;
+  height: 400px;
+  width: 600px;
+  height: 400px;
+  background-color: #fff;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body {
+  font-size: 9pt;
+  font-family: oreilly, Helvetica, Arial, sans-serif;
+  width: 600px;
+  height: 400px;
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+  font-weight: 500;
+}
+
+#clearFileList {
+  float: right;
+  color: #d3002d;
+  text-decoration: none;
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
+
+#clearFileList:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+table#file-list {
+  width: 100%;
+  border-spacing: 0px;
+}
+
+table#file-list tr td .placeholder {
+  width: 15px;
+  height: 15px;
+}
+
+table#file-list tr:hover td .placeholder {
+  content: url("../img/trash-can.svg");
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+th {
+  font-size: 9pt;
+  font-weight: 500;
+  padding: 5px;
+  border-bottom: 1px solid #000;
+}
+
+th.left {
+  text-align: left;
+  width: 100%;
+}
+
+tr:nth-child(even) {
+  background-color: #efefef;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+td {
+  font-size: 8pt;
+  padding: 5px;
+}
+
+td.center {
+  text-align: center;
+}
+
+td.right {
+  text-align: right;
+}
+
+.wide {
+  width: 325px;
+  max-width: 350px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wide:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.logo {
+  background-image: url("../img/myoreillydownloader_logo.svg");
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  margin: 5px 20px 0px 20px;
+}
+
+.paypal-logo {
+  background-image: url("../img/paypal_donate.png");
+  background-repeat: no-repeat;
+  width: 77px;
+  height: 35px;
+  margin: 5px 20px 0px 10px;
+}
+
+.paypal-logo:hover {
+  cursor: pointer;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+#clearFileList.disabled {
+  color: #808080;
+  text-decoration: none !important;
+}

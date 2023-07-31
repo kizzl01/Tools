@@ -1,0 +1,428 @@
+:root {
+  --hover-red: #d3002d;
+  --hover-dark-red: #8b001e;
+}
+
+.closeMe {
+  position: sticky;
+  top: 0px;
+  right: 10px;
+  float: right;
+  font-size: large;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.hidden {
+  display: none;
+}
+
+.message {
+  font-weight: 600;
+  font-size: small;
+}
+
+.getVideosLink {
+  font-weight: 600;
+}
+
+.getVideosLink:hover {
+  cursor: pointer;
+}
+
+.zIndex3 {
+  z-index: 3;
+}
+
+.margin-top-5 {
+  margin-top: 5px;
+}
+
+.collapseVis {
+  visibility: collapse;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  font-weight: 600;
+  background-color: var(--hover-red);
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  white-space: nowrap;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptextQuality {
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+.tooltiptextQuality:hover {
+  background-color: var(--hover-dark-red);
+}
+
+.tooltip .tooltiptextMP4 {
+  position: absolute;
+  z-index: 1;
+  top: 44px;
+  left: 0px;
+  width: 150px;
+  border-radius: 0 0 5px 5px;
+}
+
+.tooltip .tooltiptextMP4Batch {
+  position: absolute;
+  z-index: 1;
+  left: 0px;
+  margin-top: 5px;
+  border-radius: 0 5px 5px 5px;
+}
+
+@-moz-document url-prefix() {
+  .tooltip .tooltiptextMP4 {
+    top: 42px;
+  }
+}
+
+.tooltiptextMP4:hover {
+  background-color: var(--hover-dark-red);
+}
+
+.spacer {
+  margin-left: 100px;
+}
+
+.errorLabel {
+  font-size: small;
+  font-weight: bold;
+  height: 22px;
+  line-height: 15px;
+  padding: 5px;
+  margin-right: 30px;
+  color: var(--hover-red);
+}
+
+.errorLabelLarge {
+  font-size: medium !important;
+  line-height: unset;
+  margin-bottom: 40px;
+}
+
+.downloadLabel {
+  font-size: small;
+  font-weight: bold;
+  color: #000;
+  width: 40px;
+  height: 22px;
+  line-height: 15px;
+  padding: 5px;
+  margin-right: 30px;
+}
+
+.captionBlock {
+  font-size: 11px;
+  font-weight: 600;
+  background-color: #000;
+  color: #fff;
+  height: 22px;
+  line-height: 12px;
+  padding: 5px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+@-moz-document url-prefix() {
+  .captionBlock {
+    line-height: 10px;
+  }
+}
+
+.captionBlock:hover {
+  cursor: pointer;
+  background-color: var(--hover-red);
+}
+
+.resBlock {
+  background-color: #000;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 12px;
+  padding: 5px;
+  height: 22px;
+  transition: border-radius 0.2s;
+}
+
+@-moz-document url-prefix() {
+  .resBlock {
+    line-height: 10px;
+  }
+}
+
+.resBlock:hover {
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  background-color: var(--hover-red);
+}
+
+.captionBlock.inline {
+  display: inline-block;
+}
+
+.margin-right-10 {
+  margin-right: 10px;
+}
+
+.resBlock-small {
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 600;
+  padding: 3px;
+  margin: 0 auto;
+}
+
+.loader {
+  display: flex;
+  background-color: #eee;
+  padding: 10px 10px;
+  height: 44px;
+  line-height: 22px;
+}
+
+.darker-loader {
+  display: flex;
+  background-color: #eae9e9;
+  padding: 10px 10px;
+  height: 44px;
+  line-height: 22px;
+  font-size: small;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+
+.videosHeading {
+  font-weight: 600;
+  font-size: x-large;
+}
+
+.filename {
+  font-weight: 600;
+  font-size: medium;
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+.myoreillylogo-img {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/myoreillydownloader_logo.svg");
+}
+.myoreillylogo-img {
+  background-repeat: no-repeat;
+  height: 28px;
+  width: 28px;
+  cursor: pointer;
+}
+.myoreillylogo-img:hover {
+  opacity: 0.75;
+}
+@-moz-document url-prefix() {
+  .myoreillylogo-img {
+    background-image: url("moz-extension://__MSG_@@extension_id__/img/myoreillydownloader_logo.svg");
+  }
+}
+
+.logopos {
+  position: relative;
+  right: 0px;
+}
+
+.wrapper {
+  padding-left: 45px;
+  padding-top: 5px;
+  font-size: small;
+  overflow: hidden;
+  background-color: #fff;
+  background-position: 5px;
+  border: 10px solid #eee;
+  box-shadow: #bbb 5px 5px 10px;
+  border-radius: 25px;
+  height: 50px;
+  width: 350px;
+  right: 320px;
+  transition:
+    right 1s,
+    width 1s;
+}
+
+.wrapper-videos {
+  position: fixed;
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: small;
+  background-color: #fff;
+  border: 10px solid #eee;
+  box-shadow: #bbb 5px 5px 10px;
+  border-radius: 25px;
+  min-width: 350px;
+  max-width: 800px;
+  min-height: 60px;
+  max-height: calc(100% - 104px);
+  right: 90px;
+  top: 104px;
+  overflow-y: auto;
+}
+
+.fade-in {
+  animation: fadeIn ease 2s;
+  -webkit-animation: fadeIn ease 2s;
+  -moz-animation: fadeIn ease 2s;
+  -o-animation: fadeIn ease 2s;
+  -ms-animation: fadeIn ease 2s;
+}
+
+.flashDiv {
+  position: absolute;
+  right: 50px;
+  top: 10px;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  z-index: 100;
+  width: 100px;
+  height: 100px;
+  animation: fadeOut ease 3s;
+  -webkit-animation: fadeOut ease 3s;
+  -moz-animation: fadeOut ease 3s;
+  -o-animation: fadeOut ease 3s;
+  -ms-animation: fadeOut ease 3s;
+}
+.flashDiv {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/myoreillydownloader_logo.svg");
+}
+@-moz-document url-prefix() {
+  .flashDiv {
+    background-image: url("moz-extension://__MSG_@@extension_id__/img/myoreillydownloader_logo.svg");
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ------------------ */
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-ms-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
