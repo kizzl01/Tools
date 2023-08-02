@@ -1,13 +1,9 @@
 {
-  "name": "@kizzl01/Tools/packages/epubtopdf",
+  "name": "epubtopdf",
   "version": "1.0.0",
   "description": "a module to convert epub files to pdf",
   "main": "./lib/index.js",
   "preferGlobal": true,
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com"
-  },
   "directories": {
     "lib": "lib",
     "bin": "bin"
@@ -19,7 +15,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "https://github.com/kizzl01/Tools.git",
   "author": "kizzl",
   "license": "ISC",
   "bin": {

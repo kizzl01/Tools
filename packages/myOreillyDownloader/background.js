@@ -1,12 +1,12 @@
-"use strict";
-
+import data from "./config.js";
+import ConvertApi from "./node_modules/convertapi-js";
 const TWENTY_MINUTES = 20 * 60 * 1000;
 
 let courseTitle;
 let folderName;
 let tabId;
 let type;
-
+const configData = data.ConvertApi;
 let epubFileList = [];
 console.log("background.js start");
 chrome.runtime.onInstalled.addListener((details) => {
@@ -105,11 +105,10 @@ chrome.downloads.onChanged.addListener((delta) => {
         for (let i = 0; i < chunks.length; i++) {
           chrome.tabs.sendMessage(tabId, {
             action: "updateEpubMessage",
-            text: `Downloading batch ${i + 1} of ${
-              chunks.length
-            }, please wait...`,
+            text: `Downloading batch ${i + 1} of ${chunks.length
+              }, please wait...`,
           });
-
+          // hier werden die epub-file segmente gesammelt
           try {
             await Promise.all(
               await chunks[i].map(async (file) => {
@@ -141,7 +140,6 @@ chrome.downloads.onChanged.addListener((delta) => {
           mediaType: "text/css",
           contents: new Uint8Array(overrideCssData),
         });
-
         for (let i = 1; i < epubFileList.length; i++) {
           if (
             epubFileList[i].mediaType === "application/xhtml+xml" ||
@@ -297,25 +295,94 @@ ${fileText}
             toZip[file.filename] = [file.contents, { level }];
           })
         );
-
+        console.log(`background.js creating ePub book and downloading`);
         chrome.tabs.sendMessage(tabId, {
           action: "updateEpubMessage",
           text: "Creating ePub book and downloading",
         });
         const res = fflate.zipSync(toZip, { level: 0 });
 
-        const blobtodownload = URL.createObjectURL(
-          new Blob([res], { type: "application/epub+zip" })
+        //self implemented pdf conversion starts here
+
+        const blobEpub = new Blob([res], { type: "application/epub+zip" });
+        let Base64EpubData = ""
+
+        console.log(`structure of blobEpub: ${JSON.stringify(blobEpub)}`);
+        const reader = new FileReader();
+        reader.readAsDataURL(blobEpub);
+        reader.onloadend = function () {
+          const base64String = reader.result;
+          console.log('Base64 String - ', base64String);
+          Base64EpubData = base64String.substr(base64String.indexOf(', ') + 1);
+        }
+
+        const b64toBlob = (b64Data, contentType = '', sliceSize = 512) => {
+          const byteCharacters = atob(b64Data);
+          const byteArrays = [];
+
+          for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+            const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+            const byteNumbers = new Array(slice.length);
+            for (let i = 0; i < slice.length; i++) {
+              byteNumbers[i] = slice.charCodeAt(i);
+            }
+
+            const byteArray = new Uint8Array(byteNumbers);
+            byteArrays.push(byteArray);
+          }
+
+          const blob = new Blob(byteArrays, { type: contentType });
+          return blob;
+        }
+
+        const conversionRequestOptions = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: {
+            "Parameters": [
+              {
+                "Name": "File",
+                "FileValue": {
+                  "Name": `${bookJson.identifier}.epub`,
+                  "Data": `${Base64EpubData}`
+                }
+              },
+              {
+                "Name": "FileName",
+                "Value": `${bookJson.identifier}`
+              },
+            ]
+          },
+        };
+
+        let convertApi = ConvertApi.auth(`${configData.secret}`)
+        let params = convertApi.createParams()
+        params.add('File', elFileInput.files[0]);
+        params.add('FileName', `${bookJson.identifier}`);
+        let result = await convertApi.convert('epub', 'pdf', params)
+
+        const body = response.body;
+        const pdfFileDataRaw = body.Files[0].FileData;
+        const pdfFileBase64 = pdfFileDataRaw.substr(pdfFileDataRaw.indexOf(', ') + 1);
+        const pdfFileBlob = b64toBlob(pdfFileDataRaw, "application/pdf");
+
+
+        console.log(`convert to pdf finished`);
+        const pdfToDownload = URL.createObjectURL(
+          pdfFileBlob
         );
-        console.log(`beginning download epub file ${bookJson.identifier}`);
+        console.log(`beginning download pdf file ${bookJson.identifier}`);
         await chrome.downloads.download(
           {
-            url: blobtodownload,
-            filename: `${bookJson.identifier}.epub`,
+            url: pdfToDownload,
+            filename: `${bookJson.identifier}.pdf`,
             saveAs: false,
           },
           async (downloadId) => {
-            console.log(`begin of download epub file callback method ${bookJson.identifier}`);
+            console.log(`begin of download pdf file callback method ${bookJson.identifier}`);
             epubFileList.length = 0;
 
             // Free up the blob object (not immediately, as Firefox breaks)
@@ -324,10 +391,34 @@ ${fileText}
             }, 2000);
 
             sendResponse({ completed: true });
-            console.log(`end of download epub file callback method ${bookJson.identifier}`);
+            console.log(`end of download pdf file callback method ${bookJson.identifier}`);
             return true;
           }
         );
+        // console.log(`beginning download epub file ${bookJson.identifier}`);
+        //const blobtodownload = URL.createObjectURL(
+        //  blobEpub
+        //);
+        // await chrome.downloads.download(
+        //   {
+        //     url: blobtodownload,
+        //     filename: `${bookJson.identifier}.epub`,
+        //     saveAs: false,
+        //   },
+        //   async (downloadId) => {
+        //     console.log(`begin of download epub file callback method ${bookJson.identifier}`);
+        //     epubFileList.length = 0;
+
+        //     // Free up the blob object (not immediately, as Firefox breaks)
+        //     setTimeout(() => {
+        //       URL.revokeObjectURL(blobtodownload);
+        //     }, 2000);
+
+        //     sendResponse({ completed: true });
+        //     console.log(`end of download epub file callback method ${bookJson.identifier}`);
+        //     return true;
+        //   }
+        // );
         console.log(`ending of epub file download ${bookJson.identifier}`);
         chrome.tabs.sendMessage(tabId, {
           action: "updateEpubMessage",
@@ -464,9 +555,8 @@ ${fileText}
               item.courseTitle = item.courseTitle.trim();
               if (item.parentTitle) {
                 const folder = `${item.parentTitle.trim()}/`;
-                filename = `${
-                  item.courseTitle
-                }/${folder}${newFileName.replaceAll("_", " ")}`;
+                filename = `${item.courseTitle
+                  }/${folder}${newFileName.replaceAll("_", " ")}`;
               } else {
                 filename = `${item.courseTitle}/${newFileName.replaceAll(
                   "_",
@@ -498,3 +588,4 @@ ${fileText}
     }
   );
 })();
+

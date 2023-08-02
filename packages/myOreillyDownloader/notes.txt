@@ -1,3 +1,5 @@
+plugin console output (lifecycle surveillance)
+
 common.js start
 common.js:4 first function in common.js
 kaltura_functions.js:2 kaltura functions start
@@ -6,3 +8,140 @@ contentscript.js:2 contentscript start before var decl
 contentscript.js:21 contentscript start after var decl
 contentscript.js:529 contentscript async function call
 fflate.js:1 fflate.js start
+
+kaltura functions start
+kaltura_functions.js:4 kaltura first function call
+background.js:11 background.js start
+background.js:34 background.js async method call
+background.js:106 background.js downloading batch 1 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 2 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 3 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 4 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 5 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 6 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 7 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 8 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 9 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 10 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 11 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 12 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 13 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 14 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 15 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 16 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 17 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 18 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 19 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 20 
+ chunks datatype object and epubFileList object
+background.js:106 background.js downloading batch 21 
+ chunks datatype object and epubFileList object
+background.js:144 background.js epubFileList length: 512
+background.js:146 epubFileList index 1 mediaType text/html and fileName chapter-01.html
+background.js:146 epubFileList index 2 mediaType text/html and fileName chapter-05.html
+background.js:146 epubFileList index 3 mediaType text/html and fileName chapter-02.html
+...
+background.js:146 epubFileList index 75 mediaType text/html and fileName chapter-73.html
+background.js:146 epubFileList index 76 mediaType text/css and fileName base.min.css
+background.js:146 epubFileList index 77 mediaType image/png and fileName bg100.png
+background.js:146 epubFileList index 78 mediaType image/png and fileName bg101.png
+background.js:146 epubFileList index 79 mediaType image/png and fileName bg102.png
+background.js:146 epubFileList index 80 mediaType image/png and fileName bg103.png
+background.js:146 epubFileList index 81 mediaType image/png and fileName bg104.png
+background.js:146 epubFileList index 82 mediaType image/png and fileName bg105.png
+background.js:146 epubFileList index 83 mediaType image/png and fileName bg106.png
+background.js:146 epubFileList index 84 mediaType image/png and fileName bg107.png
+background.js:146 epubFileList index 85 mediaType image/png and fileName bg108.png
+background.js:146 epubFileList index 86 mediaType image/png and fileName bg109.png
+background.js:146 epubFileList index 87 mediaType image/png and fileName bg10a.png
+background.js:146 epubFileList index 88 mediaType image/png and fileName bg10b.png
+background.js:146 epubFileList index 89 mediaType text/html and fileName chapter-78.html
+background.js:146 epubFileList index 90 mediaType text/html and fileName chapter-79.html
+background.js:146 epubFileList index 91 mediaType text/html and fileName chapter-76.html
+background.js:146 epubFileList index 92 mediaType text/html and fileName chapter-80.html
+background.js:146 epubFileList index 93 mediaType text/html and fileName chapter-77.html
+background.js:146 epubFileList index 94 mediaType text/html and fileName chapter-81.html
+background.js:146 epubFileList index 95 mediaType text/html and fileName chapter-83.html
+background.js:146 epubFileList index 96 mediaType text/html and fileName chapter-84.html
+background.js:146 epubFileList index 97 mediaType text/html and fileName chapter-86.html
+background.js:146 epubFileList index 98 mediaType text/html and fileName chapter-82.html
+background.js:146 epubFileList index 99 mediaType text/html and fileName chapter-87.html
+background.js:146 epubFileList index 100 mediaType text/html and fileName chapter-85.html
+background.js:146 epubFileList index 101 mediaType image/png and fileName bg10c.png
+background.js:146 epubFileList index 102 mediaType image/png and fileName bg10d.png
+background.js:146 epubFileList index 103 mediaType image/png and fileName bg10e.png
+...
+background.js:146 epubFileList index 461 mediaType image/png and fileName bgff.png
+background.js:146 epubFileList index 462 mediaType image/png and fileName bgf.png
+background.js:146 epubFileList index 463 mediaType font/ttf and fileName f10.otf
+background.js:146 epubFileList index 464 mediaType font/ttf and fileName f14.otf
+background.js:146 epubFileList index 465 mediaType application/oebps-package+xml and fileName content.opf
+background.js:146 epubFileList index 466 mediaType font/ttf and fileName f13.otf
+background.js:146 epubFileList index 467 mediaType font/ttf and fileName f12.otf
+background.js:146 epubFileList index 468 mediaType font/ttf and fileName f11.otf
+background.js:146 epubFileList index 469 mediaType font/ttf and fileName f15.otf
+background.js:146 epubFileList index 470 mediaType font/ttf and fileName f17.otf
+background.js:146 epubFileList index 471 mediaType font/ttf and fileName f19.otf
+background.js:146 epubFileList index 472 mediaType font/ttf and fileName f1a.otf
+background.js:146 epubFileList index 473 mediaType font/ttf and fileName f1b.otf
+background.js:146 epubFileList index 474 mediaType font/ttf and fileName f16.otf
+background.js:146 epubFileList index 475 mediaType font/ttf and fileName f18.otf
+background.js:146 epubFileList index 476 mediaType text/css and fileName fancy.min.css
+background.js:146 epubFileList index 477 mediaType font/ttf and fileName f20.otf
+background.js:146 epubFileList index 478 mediaType font/ttf and fileName f1c.otf
+background.js:146 epubFileList index 479 mediaType font/ttf and fileName f1.otf
+background.js:146 epubFileList index 480 mediaType font/ttf and fileName f1e.otf
+background.js:146 epubFileList index 481 mediaType font/ttf and fileName f22.otf
+background.js:146 epubFileList index 482 mediaType font/ttf and fileName f21.otf
+background.js:146 epubFileList index 483 mediaType font/ttf and fileName f23.otf
+background.js:146 epubFileList index 484 mediaType font/ttf and fileName f25.otf
+background.js:146 epubFileList index 485 mediaType font/ttf and fileName f1f.otf
+background.js:146 epubFileList index 486 mediaType font/ttf and fileName f24.otf
+background.js:146 epubFileList index 487 mediaType font/ttf and fileName f26.otf
+background.js:146 epubFileList index 488 mediaType font/ttf and fileName f1d.otf
+background.js:146 epubFileList index 489 mediaType font/ttf and fileName f27.otf
+background.js:146 epubFileList index 490 mediaType font/ttf and fileName f29.otf
+background.js:146 epubFileList index 491 mediaType font/ttf and fileName f2.otf
+background.js:146 epubFileList index 492 mediaType font/ttf and fileName f3.otf
+background.js:146 epubFileList index 493 mediaType font/ttf and fileName f28.otf
+background.js:146 epubFileList index 494 mediaType font/ttf and fileName f8.otf
+background.js:146 epubFileList index 495 mediaType font/ttf and fileName f5.otf
+background.js:146 epubFileList index 496 mediaType font/ttf and fileName f7.otf
+background.js:146 epubFileList index 497 mediaType font/ttf and fileName f6.otf
+background.js:146 epubFileList index 498 mediaType font/ttf and fileName f9.otf
+background.js:146 epubFileList index 499 mediaType font/ttf and fileName f4.otf
+background.js:146 epubFileList index 500 mediaType font/ttf and fileName fa.otf
+background.js:146 epubFileList index 501 mediaType text/css and fileName overrides.css
+background.js:146 epubFileList index 502 mediaType image/png and fileName pdf2htmlEX-64x64.png
+background.js:146 epubFileList index 503 mediaType text/css and fileName print.css
+background.js:146 epubFileList index 504 mediaType text/css and fileName styles.css
+background.js:146 epubFileList index 505 mediaType font/ttf and fileName fe.otf
+background.js:146 epubFileList index 506 mediaType font/ttf and fileName fc.otf
+background.js:146 epubFileList index 507 mediaType application/x-dtbncx+xml and fileName toc.ncx
+background.js:146 epubFileList index 508 mediaType font/ttf and fileName ff.otf
+background.js:146 epubFileList index 509 mediaType font/ttf and fileName fb.otf
+background.js:146 epubFileList index 510 mediaType font/ttf and fileName fd.otf
+background.js:146 epubFileList index 511 mediaType text/css and fileName /override_v1.css
+background.js:311 beginning download epub file 9781439812914
+background.js:332 ending of epub file download 9781439812914
+background.js:319 begin of download epub file callback method 9781439812914
+background.js:328 end of download epub file callback method 9781439812914

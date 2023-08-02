@@ -1,7 +1,5 @@
 "use strict";
-console.log("kaltura functions start");
 (() => {
-  console.log("kaltura first function call");
   const origin = window.location.origin;
   const filterToUrlMap = [
     {

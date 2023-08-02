@@ -1,0 +1,27 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "None",
+    "moduleResolution": "Node",
+
+    "strict": true,
+    "noEmitOnError": true,
+    "noImplicitReturns": true,
+    "noUnusedParameters": true,
+    "noImplicitThis": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+
+    "removeComments": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outFile": "./lib/convertapi.js"
+  },
+  
+  "include": [
+    "./src/**/*.ts"
+  ]
+}
